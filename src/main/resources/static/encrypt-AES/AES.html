@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AESt</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="./crypt_test.js" type="module"></script>
+    <script src="./aes.js"></script>
+</head>
+<body>
+    <input type="text" id="input">
+    <button id="en">encrypt</button>
+    <button id="de">decrypt</button>
+    <div></div>
+
+    <script type="text/javascript">
+        $("#en").click(function () {
+            var input = $("#input").val();
+            // var en = crypt.encrypt("1234");
+
+            // $("div").html(en);
+            $.get("http://localhost:8080/encrypt?message=" + input, function (result) {
+                $("div").html(result);
+            });
+        });
+
+    </script>
+</body>
+</html>
